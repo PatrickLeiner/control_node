@@ -14,18 +14,18 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_authentication_clicked()
+void MainWindow::on_pushButton_authentication_clicked() //request authentication if pressed
 {
     //todo if authentication is true
     ui->stackedWidget->setCurrentIndex(1);
 }
 
-void MainWindow::on_toolButton_clicked()
+void MainWindow::on_toolButton_clicked() //change to settings widget
 {
     ui->stackedWidget->setCurrentIndex(2);
 }
 
-void MainWindow::on_buttonBox_accepted()
+void MainWindow::on_buttonBox_accepted() //ok button of settings widget
 {
     //todo if settings have to be saved or not...
     ui->stackedWidget->setCurrentIndex(1);
