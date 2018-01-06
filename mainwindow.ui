@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="page_1">
      <widget class="QPushButton" name="pushButton_authentication">
@@ -175,13 +175,13 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="Tab_Cam1">
        <attribute name="title">
         <string>CAM1</string>
        </attribute>
-       <widget class="QGroupBox" name="groupBox">
+       <widget class="QGroupBox" name="groupBox_Cam1">
         <property name="geometry">
          <rect>
           <x>85</x>
@@ -193,7 +193,7 @@
         <property name="title">
          <string/>
         </property>
-        <widget class="QRadioButton" name="radioButton">
+        <widget class="QRadioButton" name="radioButton_1_Cam1">
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -209,7 +209,7 @@
           <bool>true</bool>
          </property>
         </widget>
-        <widget class="QRadioButton" name="radioButton_2">
+        <widget class="QRadioButton" name="radioButton_2_Cam1">
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -222,7 +222,7 @@
           <string>720p/60FPS</string>
          </property>
         </widget>
-        <widget class="QRadioButton" name="radioButton_3">
+        <widget class="QRadioButton" name="radioButton_3_Cam1">
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -235,7 +235,7 @@
           <string>640x480p/60FPS</string>
          </property>
         </widget>
-        <widget class="QRadioButton" name="radioButton_4">
+        <widget class="QRadioButton" name="radioButton_4_Cam1">
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -254,7 +254,7 @@
        <attribute name="title">
         <string>CAM2</string>
        </attribute>
-       <widget class="QGroupBox" name="groupBox_2">
+       <widget class="QGroupBox" name="groupBox_Cam2">
         <property name="geometry">
          <rect>
           <x>85</x>
@@ -266,7 +266,7 @@
         <property name="title">
          <string/>
         </property>
-        <widget class="QRadioButton" name="radioButton_5">
+        <widget class="QRadioButton" name="radioButton_1_Cam2">
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -282,7 +282,7 @@
           <bool>true</bool>
          </property>
         </widget>
-        <widget class="QRadioButton" name="radioButton_6">
+        <widget class="QRadioButton" name="radioButton_2_Cam2">
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -295,7 +295,7 @@
           <string>720p/60FPS</string>
          </property>
         </widget>
-        <widget class="QRadioButton" name="radioButton_7">
+        <widget class="QRadioButton" name="radioButton_3_Cam2">
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -308,7 +308,7 @@
           <string>640x480p/60FPS</string>
          </property>
         </widget>
-        <widget class="QRadioButton" name="radioButton_8">
+        <widget class="QRadioButton" name="radioButton_4_Cam2">
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -327,7 +327,7 @@
        <attribute name="title">
         <string>CAM3</string>
        </attribute>
-       <widget class="QGroupBox" name="groupBox_3">
+       <widget class="QGroupBox" name="groupBox_Cam3">
         <property name="geometry">
          <rect>
           <x>85</x>
@@ -339,7 +339,7 @@
         <property name="title">
          <string/>
         </property>
-        <widget class="QRadioButton" name="radioButton_9">
+        <widget class="QRadioButton" name="radioButton_1_Cam3">
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -355,7 +355,7 @@
           <bool>true</bool>
          </property>
         </widget>
-        <widget class="QRadioButton" name="radioButton_10">
+        <widget class="QRadioButton" name="radioButton_2_Cam3">
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -368,7 +368,7 @@
           <string>720p/60FPS</string>
          </property>
         </widget>
-        <widget class="QRadioButton" name="radioButton_11">
+        <widget class="QRadioButton" name="radioButton_3_Cam3">
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -381,7 +381,7 @@
           <string>640x480p/60FPS</string>
          </property>
         </widget>
-        <widget class="QRadioButton" name="radioButton_12">
+        <widget class="QRadioButton" name="radioButton_4_Cam3">
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -400,7 +400,7 @@
        <attribute name="title">
         <string>CAM4</string>
        </attribute>
-       <widget class="QGroupBox" name="groupBox_4">
+       <widget class="QGroupBox" name="groupBox_Cam4">
         <property name="geometry">
          <rect>
           <x>85</x>
@@ -412,7 +412,7 @@
         <property name="title">
          <string/>
         </property>
-        <widget class="QRadioButton" name="radioButton_13">
+        <widget class="QRadioButton" name="radioButton_1_Cam4">
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -428,7 +428,7 @@
           <bool>true</bool>
          </property>
         </widget>
-        <widget class="QRadioButton" name="radioButton_14">
+        <widget class="QRadioButton" name="radioButton_2_Cam4">
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -441,7 +441,7 @@
           <string>720p/60FPS</string>
          </property>
         </widget>
-        <widget class="QRadioButton" name="radioButton_15">
+        <widget class="QRadioButton" name="radioButton_3_Cam4">
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -454,7 +454,7 @@
           <string>640x480p/60FPS</string>
          </property>
         </widget>
-        <widget class="QRadioButton" name="radioButton_16">
+        <widget class="QRadioButton" name="radioButton_4_Cam4">
          <property name="geometry">
           <rect>
            <x>10</x>

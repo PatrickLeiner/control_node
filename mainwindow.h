@@ -22,6 +22,8 @@ private slots:
 
     void on_buttonBox_accepted();
 
+    void on_toolButton_Settings_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
