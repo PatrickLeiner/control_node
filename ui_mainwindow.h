@@ -21,6 +21,7 @@
 #include <QtGui/QRadioButton>
 #include <QtGui/QStackedWidget>
 #include <QtGui/QTabWidget>
+#include <QtGui/QTextEdit>
 #include <QtGui/QToolButton>
 #include <QtGui/QWidget>
 
@@ -39,6 +40,7 @@ public:
     QPushButton *pushButton_Cam3;
     QPushButton *pushButton_Cam4;
     QToolButton *toolButton;
+    QPushButton *pushButton_Cam4_2;
     QWidget *page_3;
     QDialogButtonBox *buttonBox;
     QTabWidget *tabWidget;
@@ -66,12 +68,13 @@ public:
     QRadioButton *radioButton_2_Cam4;
     QRadioButton *radioButton_3_Cam4;
     QRadioButton *radioButton_4_Cam4;
+    QTextEdit *textEdit;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(320, 240);
+        MainWindow->resize(320, 347);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         stackedWidget = new QStackedWidget(centralWidget);
@@ -113,7 +116,12 @@ public:
         pushButton_Cam4->setChecked(false);
         toolButton = new QToolButton(page_2);
         toolButton->setObjectName(QString::fromUtf8("toolButton"));
-        toolButton->setGeometry(QRect(240, 10, 70, 220));
+        toolButton->setGeometry(QRect(240, 10, 70, 105));
+        pushButton_Cam4_2 = new QPushButton(page_2);
+        pushButton_Cam4_2->setObjectName(QString::fromUtf8("pushButton_Cam4_2"));
+        pushButton_Cam4_2->setGeometry(QRect(240, 125, 70, 105));
+        pushButton_Cam4_2->setCheckable(false);
+        pushButton_Cam4_2->setChecked(false);
         stackedWidget->addWidget(page_2);
         page_3 = new QWidget();
         page_3->setObjectName(QString::fromUtf8("page_3"));
@@ -129,7 +137,7 @@ public:
         Tab_Cam1->setObjectName(QString::fromUtf8("Tab_Cam1"));
         groupBox_Cam1 = new QGroupBox(Tab_Cam1);
         groupBox_Cam1->setObjectName(QString::fromUtf8("groupBox_Cam1"));
-        groupBox_Cam1->setGeometry(QRect(85, 0, 150, 155));
+        groupBox_Cam1->setGeometry(QRect(0, 0, 150, 155));
         radioButton_1_Cam1 = new QRadioButton(groupBox_Cam1);
         radioButton_1_Cam1->setObjectName(QString::fromUtf8("radioButton_1_Cam1"));
         radioButton_1_Cam1->setGeometry(QRect(10, 30, 140, 23));
@@ -148,7 +156,7 @@ public:
         Tab_Cam2->setObjectName(QString::fromUtf8("Tab_Cam2"));
         groupBox_Cam2 = new QGroupBox(Tab_Cam2);
         groupBox_Cam2->setObjectName(QString::fromUtf8("groupBox_Cam2"));
-        groupBox_Cam2->setGeometry(QRect(85, 0, 150, 155));
+        groupBox_Cam2->setGeometry(QRect(0, 0, 150, 155));
         radioButton_1_Cam2 = new QRadioButton(groupBox_Cam2);
         radioButton_1_Cam2->setObjectName(QString::fromUtf8("radioButton_1_Cam2"));
         radioButton_1_Cam2->setGeometry(QRect(10, 30, 140, 23));
@@ -167,7 +175,7 @@ public:
         Tab_Cam3->setObjectName(QString::fromUtf8("Tab_Cam3"));
         groupBox_Cam3 = new QGroupBox(Tab_Cam3);
         groupBox_Cam3->setObjectName(QString::fromUtf8("groupBox_Cam3"));
-        groupBox_Cam3->setGeometry(QRect(85, 0, 150, 155));
+        groupBox_Cam3->setGeometry(QRect(0, 0, 150, 155));
         radioButton_1_Cam3 = new QRadioButton(groupBox_Cam3);
         radioButton_1_Cam3->setObjectName(QString::fromUtf8("radioButton_1_Cam3"));
         radioButton_1_Cam3->setGeometry(QRect(10, 30, 140, 23));
@@ -186,7 +194,7 @@ public:
         Tab_Cam4->setObjectName(QString::fromUtf8("Tab_Cam4"));
         groupBox_Cam4 = new QGroupBox(Tab_Cam4);
         groupBox_Cam4->setObjectName(QString::fromUtf8("groupBox_Cam4"));
-        groupBox_Cam4->setGeometry(QRect(85, 0, 150, 155));
+        groupBox_Cam4->setGeometry(QRect(0, 0, 150, 155));
         radioButton_1_Cam4 = new QRadioButton(groupBox_Cam4);
         radioButton_1_Cam4->setObjectName(QString::fromUtf8("radioButton_1_Cam4"));
         radioButton_1_Cam4->setGeometry(QRect(10, 30, 140, 23));
@@ -202,12 +210,15 @@ public:
         radioButton_4_Cam4->setGeometry(QRect(10, 120, 140, 23));
         tabWidget->addTab(Tab_Cam4, QString());
         stackedWidget->addWidget(page_3);
+        textEdit = new QTextEdit(centralWidget);
+        textEdit->setObjectName(QString::fromUtf8("textEdit"));
+        textEdit->setGeometry(QRect(20, 240, 271, 101));
         MainWindow->setCentralWidget(centralWidget);
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(1);
-        tabWidget->setCurrentIndex(3);
+        stackedWidget->setCurrentIndex(2);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -221,7 +232,10 @@ public:
         pushButton_Cam2->setText(QApplication::translate("MainWindow", "CAM2", 0, QApplication::UnicodeUTF8));
         pushButton_Cam3->setText(QApplication::translate("MainWindow", "CAM3", 0, QApplication::UnicodeUTF8));
         pushButton_Cam4->setText(QApplication::translate("MainWindow", "Cam4", 0, QApplication::UnicodeUTF8));
-        toolButton->setText(QApplication::translate("MainWindow", "...", 0, QApplication::UnicodeUTF8));
+        toolButton->setText(QApplication::translate("MainWindow", "Settings", 0, QApplication::UnicodeUTF8));
+        pushButton_Cam4_2->setText(QApplication::translate("MainWindow", "New \n"
+" finger-\n"
+"print", 0, QApplication::UnicodeUTF8));
         groupBox_Cam1->setTitle(QString());
         radioButton_1_Cam1->setText(QApplication::translate("MainWindow", "1080p/30FPS", 0, QApplication::UnicodeUTF8));
         radioButton_2_Cam1->setText(QApplication::translate("MainWindow", "720p/60FPS", 0, QApplication::UnicodeUTF8));

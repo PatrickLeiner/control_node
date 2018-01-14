@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>320</width>
-    <height>240</height>
+    <height>347</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="page_1">
      <widget class="QPushButton" name="pushButton_authentication">
@@ -140,11 +140,32 @@
         <x>240</x>
         <y>10</y>
         <width>70</width>
-        <height>220</height>
+        <height>105</height>
        </rect>
       </property>
       <property name="text">
-       <string>...</string>
+       <string>Settings</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_Cam4_2">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>125</y>
+        <width>70</width>
+        <height>105</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>New 
+ finger-
+print</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
       </property>
      </widget>
     </widget>
@@ -175,7 +196,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="Tab_Cam1">
        <attribute name="title">
@@ -184,7 +205,7 @@
        <widget class="QGroupBox" name="groupBox_Cam1">
         <property name="geometry">
          <rect>
-          <x>85</x>
+          <x>0</x>
           <y>0</y>
           <width>150</width>
           <height>155</height>
@@ -257,7 +278,7 @@
        <widget class="QGroupBox" name="groupBox_Cam2">
         <property name="geometry">
          <rect>
-          <x>85</x>
+          <x>0</x>
           <y>0</y>
           <width>150</width>
           <height>155</height>
@@ -330,7 +351,7 @@
        <widget class="QGroupBox" name="groupBox_Cam3">
         <property name="geometry">
          <rect>
-          <x>85</x>
+          <x>0</x>
           <y>0</y>
           <width>150</width>
           <height>155</height>
@@ -403,7 +424,7 @@
        <widget class="QGroupBox" name="groupBox_Cam4">
         <property name="geometry">
          <rect>
-          <x>85</x>
+          <x>0</x>
           <y>0</y>
           <width>150</width>
           <height>155</height>
@@ -471,6 +492,16 @@
       </widget>
      </widget>
     </widget>
+   </widget>
+   <widget class="QTextEdit" name="textEdit">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>240</y>
+      <width>271</width>
+      <height>101</height>
+     </rect>
+    </property>
    </widget>
   </widget>
  </widget>

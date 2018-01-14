@@ -18,3 +18,6 @@ SOURCES += main.cpp\
 HEADERS  += mainwindow.h
 
 FORMS    += mainwindow.ui
+
+LIBS += -lzmq
+QMAKE_CXXFLAGS += -std=c++0x

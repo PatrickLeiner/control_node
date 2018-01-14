@@ -22,7 +22,7 @@ static const uint qt_meta_data_MainWindow[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -34,6 +34,10 @@ static const uint qt_meta_data_MainWindow[] = {
       51,   11,   11,   11, 0x08,
       75,   11,   11,   11, 0x08,
       99,   11,   11,   11, 0x08,
+     128,   11,   11,   11, 0x08,
+     157,   11,   11,   11, 0x08,
+     186,   11,   11,   11, 0x08,
+     219,  215,   11,   11, 0x08,
 
        0        // eod
 };
@@ -41,7 +45,11 @@ static const uint qt_meta_data_MainWindow[] = {
 static const char qt_meta_stringdata_MainWindow[] = {
     "MainWindow\0\0on_pushButton_authentication_clicked()\0"
     "on_toolButton_clicked()\0on_buttonBox_accepted()\0"
-    "on_toolButton_Settings_clicked()\0"
+    "on_pushButton_Cam1_clicked()\0"
+    "on_pushButton_Cam2_clicked()\0"
+    "on_pushButton_Cam3_clicked()\0"
+    "on_pushButton_Cam4_clicked()\0cam\0"
+    "sendCam(int)\0"
 };
 
 void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -53,11 +61,14 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 0: _t->on_pushButton_authentication_clicked(); break;
         case 1: _t->on_toolButton_clicked(); break;
         case 2: _t->on_buttonBox_accepted(); break;
-        case 3: _t->on_toolButton_Settings_clicked(); break;
+        case 3: _t->on_pushButton_Cam1_clicked(); break;
+        case 4: _t->on_pushButton_Cam2_clicked(); break;
+        case 5: _t->on_pushButton_Cam3_clicked(); break;
+        case 6: _t->on_pushButton_Cam4_clicked(); break;
+        case 7: _t->sendCam((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
     }
-    Q_UNUSED(_a);
 }
 
 const QMetaObjectExtraData MainWindow::staticMetaObjectExtraData = {
@@ -92,9 +103,9 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 8;
     }
     return _id;
 }
