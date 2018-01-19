@@ -34,6 +34,10 @@ private slots:
     void sendCam(int cam);
 
 
+    void on_pushButton_clicked();
+
+    void on_pushButton_Cam4_2_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

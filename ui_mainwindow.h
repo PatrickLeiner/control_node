@@ -41,6 +41,8 @@ public:
     QPushButton *pushButton_Cam4;
     QToolButton *toolButton;
     QPushButton *pushButton_Cam4_2;
+    QPushButton *pushButton;
+    QTextEdit *textEdit;
     QWidget *page_3;
     QDialogButtonBox *buttonBox;
     QTabWidget *tabWidget;
@@ -68,7 +70,6 @@ public:
     QRadioButton *radioButton_2_Cam4;
     QRadioButton *radioButton_3_Cam4;
     QRadioButton *radioButton_4_Cam4;
-    QTextEdit *textEdit;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -96,22 +97,22 @@ public:
         page_2->setObjectName(QString::fromUtf8("page_2"));
         pushButton_Cam1 = new QPushButton(page_2);
         pushButton_Cam1->setObjectName(QString::fromUtf8("pushButton_Cam1"));
-        pushButton_Cam1->setGeometry(QRect(10, 10, 105, 105));
+        pushButton_Cam1->setGeometry(QRect(10, 10, 105, 51));
         pushButton_Cam1->setCheckable(true);
         pushButton_Cam1->setChecked(false);
         pushButton_Cam2 = new QPushButton(page_2);
         pushButton_Cam2->setObjectName(QString::fromUtf8("pushButton_Cam2"));
-        pushButton_Cam2->setGeometry(QRect(10, 125, 105, 105));
+        pushButton_Cam2->setGeometry(QRect(10, 70, 105, 41));
         pushButton_Cam2->setCheckable(true);
         pushButton_Cam2->setChecked(false);
         pushButton_Cam3 = new QPushButton(page_2);
         pushButton_Cam3->setObjectName(QString::fromUtf8("pushButton_Cam3"));
-        pushButton_Cam3->setGeometry(QRect(125, 10, 105, 105));
+        pushButton_Cam3->setGeometry(QRect(125, 10, 105, 51));
         pushButton_Cam3->setCheckable(true);
         pushButton_Cam3->setChecked(false);
         pushButton_Cam4 = new QPushButton(page_2);
         pushButton_Cam4->setObjectName(QString::fromUtf8("pushButton_Cam4"));
-        pushButton_Cam4->setGeometry(QRect(125, 125, 105, 105));
+        pushButton_Cam4->setGeometry(QRect(120, 70, 105, 41));
         pushButton_Cam4->setCheckable(true);
         pushButton_Cam4->setChecked(false);
         toolButton = new QToolButton(page_2);
@@ -119,9 +120,15 @@ public:
         toolButton->setGeometry(QRect(240, 10, 70, 105));
         pushButton_Cam4_2 = new QPushButton(page_2);
         pushButton_Cam4_2->setObjectName(QString::fromUtf8("pushButton_Cam4_2"));
-        pushButton_Cam4_2->setGeometry(QRect(240, 125, 70, 105));
+        pushButton_Cam4_2->setGeometry(QRect(240, 179, 70, 51));
         pushButton_Cam4_2->setCheckable(false);
         pushButton_Cam4_2->setChecked(false);
+        pushButton = new QPushButton(page_2);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(240, 120, 71, 51));
+        textEdit = new QTextEdit(page_2);
+        textEdit->setObjectName(QString::fromUtf8("textEdit"));
+        textEdit->setGeometry(QRect(10, 120, 211, 101));
         stackedWidget->addWidget(page_2);
         page_3 = new QWidget();
         page_3->setObjectName(QString::fromUtf8("page_3"));
@@ -210,14 +217,11 @@ public:
         radioButton_4_Cam4->setGeometry(QRect(10, 120, 140, 23));
         tabWidget->addTab(Tab_Cam4, QString());
         stackedWidget->addWidget(page_3);
-        textEdit = new QTextEdit(centralWidget);
-        textEdit->setObjectName(QString::fromUtf8("textEdit"));
-        textEdit->setGeometry(QRect(20, 240, 271, 101));
         MainWindow->setCentralWidget(centralWidget);
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(1);
         tabWidget->setCurrentIndex(0);
 
 
@@ -236,6 +240,7 @@ public:
         pushButton_Cam4_2->setText(QApplication::translate("MainWindow", "New \n"
 " finger-\n"
 "print", 0, QApplication::UnicodeUTF8));
+        pushButton->setText(QApplication::translate("MainWindow", "PushButton", 0, QApplication::UnicodeUTF8));
         groupBox_Cam1->setTitle(QString());
         radioButton_1_Cam1->setText(QApplication::translate("MainWindow", "1080p/30FPS", 0, QApplication::UnicodeUTF8));
         radioButton_2_Cam1->setText(QApplication::translate("MainWindow", "720p/60FPS", 0, QApplication::UnicodeUTF8));

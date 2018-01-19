@@ -4,6 +4,7 @@
 #include <string>
 
 extern void sendPublischer( char * buff, int len);
+extern int sendAuth( char command, zmq::message_t *response);
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -77,8 +78,9 @@ std::string getSetting( QGroupBox *groupBox)
     {
 
         QRadioButton* b = dynamic_cast<QRadioButton*>( list.next() );
-            if ((b > 0) && (b->isChecked())) {
-
+            if (b != NULL){
+              if(b->isChecked())
+              {
                 objName = b->objectName();
 
                 if( std::string::npos != b->objectName().toStdString().find("_1_"))
@@ -98,7 +100,7 @@ std::string getSetting( QGroupBox *groupBox)
                     setting = "set4";
                 }
                 break;
-
+               }
             }
     }
 
@@ -166,4 +168,60 @@ void MainWindow::on_pushButton_Cam3_clicked()
 void MainWindow::on_pushButton_Cam4_clicked()
 {
     this->sendCam(4);
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    zmq::message_t response(2);
+    QString testDeb;
+    char *buff;
+    std::string byteStreamZiffer = "";
+    int res;
+
+    res = sendAuth(1, &response);
+
+    if(errno != 0)
+    {
+    testDeb += QString::fromStdString(  zmq_strerror (errno) );
+    }
+
+    ui->textEdit->append(testDeb );
+    testDeb.clear();
+    if(res > 0)
+    {
+        buff = (char*) response.data();
+        byteStreamZiffer = std::to_string( buff[0]) + std::to_string( buff[1])  ;
+    }
+
+    testDeb += QString::fromStdString(byteStreamZiffer);
+    ui->textEdit->append(testDeb );
+
+}
+
+void MainWindow::on_pushButton_Cam4_2_clicked()
+{
+    zmq::message_t response(2);
+    QString testDeb;
+    char *buff;
+    std::string byteStreamZiffer = "";
+    int res;
+
+    res = sendAuth(2, &response);
+
+    if(errno != 0)
+    {
+    testDeb += QString::fromStdString(  zmq_strerror (errno) );
+    }
+
+    ui->textEdit->append(testDeb );
+    testDeb.clear();
+    if(res > 0)
+    {
+        buff = (char*) response.data();
+        byteStreamZiffer = std::to_string( buff[0]) + std::to_string( buff[1])  ;
+    }
+
+    testDeb += QString::fromStdString(byteStreamZiffer);
+    ui->textEdit->append(testDeb );
+
 }
