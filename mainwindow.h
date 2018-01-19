@@ -33,6 +33,13 @@ private slots:
 
     void sendCam(int cam);
 
+    void on_pushButton_clicked();
+
+    void on_pushButton_new_fingerprint_clicked();
+
+    void on_buttonBox_rejected();
+
+    void on_pushButton_denied_clicked();
 
 private:
     Ui::MainWindow *ui;

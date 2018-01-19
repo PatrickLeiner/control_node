@@ -3,7 +3,10 @@
 #include <zmq.hpp>
 #include <string>
 
+#define DEBUG true
+
 extern void sendPublischer( char * buff, int len);
+extern int sendAuth( char command, zmq::message_t *response);
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -28,18 +31,52 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
+//
+// Function on_pushButton_authentication_clicked( )
+// sends request to authentication_node.
+// switch to main_window if allowed.
+// if not a error message will be displayed.
+//
 void MainWindow::on_pushButton_authentication_clicked() //request authentication if pressed
 {
-    //todo if authentication is true    
-    ui->stackedWidget->setCurrentIndex(1);
-}
+    if(DEBUG)
+      {
+            ui->stackedWidget->setCurrentIndex(1); //always allowed
+     }
+    else
+    {
+        zmq::message_t response(2);
+        char *buff;
+        int res;
 
+        res = sendAuth(1, &response);
+
+      if(res > 0)
+        {
+            buff = (char*) response.data();
+            if (buff[1] == 1)
+            {
+                ui->stackedWidget->setCurrentIndex(1);
+            }
+            else
+            {
+                ui->stackedWidget->setCurrentIndex(3);
+            }
+        }
+    }
+}
+//
+// function on_toolButton_clicked
+// switch to settings widget of the cameras
+//
 void MainWindow::on_toolButton_clicked() //change to settings widget
 {
     ui->stackedWidget->setCurrentIndex(2);
 }
-
+//
+// function on_buttonBox_accepted( )
+// set camera configurations and send it to the cameras
+//
 void MainWindow::on_buttonBox_accepted() //ok button of settings widget
 {
     //todo if settings have to be saved or not...
@@ -51,7 +88,18 @@ void MainWindow::on_buttonBox_accepted() //ok button of settings widget
     sendCam(4);
 
 }
-
+//
+// function on_buttonBox_rejected()
+// switch to control widget without changing settings
+//
+void MainWindow::on_buttonBox_rejected()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+}
+//
+// Function newState.....
+// to handle the cameras to start or stop video streaming
+//
 std::string newState(QPushButton *button)
 {
 
@@ -65,7 +113,10 @@ std::string newState(QPushButton *button)
     }
 
 }
-
+//
+// Function getSetting(....)
+// convert checkbutton for settings to string for camera_node communication
+//
 std::string getSetting( QGroupBox *groupBox)
 {
 
@@ -77,8 +128,9 @@ std::string getSetting( QGroupBox *groupBox)
     {
 
         QRadioButton* b = dynamic_cast<QRadioButton*>( list.next() );
-            if ((b > 0) && (b->isChecked())) {
-
+            if (b != NULL){
+              if(b->isChecked())
+              {
                 objName = b->objectName();
 
                 if( std::string::npos != b->objectName().toStdString().find("_1_"))
@@ -98,14 +150,17 @@ std::string getSetting( QGroupBox *groupBox)
                     setting = "set4";
                 }
                 break;
-
+               }
             }
     }
 
     return setting;
 
 }
-
+//
+// Funcion sendCam(...)
+// make and send specific communications string for each camera_node
+//
 void MainWindow::sendCam(int cam)
 {
     std::string command = "cam";
@@ -146,24 +201,104 @@ void MainWindow::sendCam(int cam)
     }
 
 }
-
+//
+// Function on_pushButton_Cam1_clicked
+// handle the pushbutton for cam1. call sendCam function.
+//
 void MainWindow::on_pushButton_Cam1_clicked()
 {
     this->sendCam(1);
 }
-
-
+//
+// Function on_pushButton_Cam2_clicked
+// handle the pushbutton for cam2. call sendCam function.
+//
 void MainWindow::on_pushButton_Cam2_clicked()
 {
     this->sendCam(2);
 }
-
+//
+// Function on_pushButton_Cam3_clicked
+// handle the pushbutton for cam3. call sendCam function.
+//
 void MainWindow::on_pushButton_Cam3_clicked()
 {
     this->sendCam(3);
 }
-
+//
+// Function on_pushButton_Cam4_clicked
+// handle the pushbutton for cam4. call sendCam function.
+//
 void MainWindow::on_pushButton_Cam4_clicked()
 {
     this->sendCam(4);
+}
+//
+// Function on_pushButton_clicked
+// handle the pushbutton for cam1. call sendCam function.
+//
+void MainWindow::on_pushButton_clicked()
+{
+    zmq::message_t response(2);
+    QString testDeb;
+    char *buff;
+    std::string byteStreamZiffer = "";
+    int res;
+
+    res = sendAuth(1, &response);
+
+    if(errno != 0)
+    {
+    testDeb += QString::fromStdString(  zmq_strerror (errno) );
+    }
+
+    ui->textEdit->append(testDeb );
+    testDeb.clear();
+    if(res > 0)
+    {
+        buff = (char*) response.data();
+        byteStreamZiffer = std::to_string( buff[0]) + std::to_string( buff[1])  ;
+    }
+
+    testDeb += QString::fromStdString(byteStreamZiffer);
+    ui->textEdit->append(testDeb );
+
+}
+
+//
+// Function on_pushButton_new_fingerprint
+//
+//
+void MainWindow::on_pushButton_new_fingerprint_clicked()
+{
+    zmq::message_t response(2);
+    QString testDeb;
+    char *buff;
+    std::string byteStreamZiffer = "";
+    int res;
+
+    res = sendAuth(2, &response);
+
+    if(errno != 0)
+    {
+    testDeb += QString::fromStdString(  zmq_strerror (errno) );
+    }
+
+    ui->textEdit->append(testDeb );
+    testDeb.clear();
+    if(res > 0)
+    {
+        buff = (char*) response.data();
+        byteStreamZiffer = std::to_string( buff[0]) + std::to_string( buff[1])  ;
+    }
+
+    testDeb += QString::fromStdString(byteStreamZiffer);
+    ui->textEdit->append(testDeb );
+}
+
+
+
+void MainWindow::on_pushButton_denied_clicked()
+{
+        ui->stackedWidget->setCurrentIndex(0);
 }

@@ -22,7 +22,7 @@ static const uint qt_meta_data_MainWindow[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       8,   14, // methods
+      10,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -38,6 +38,8 @@ static const uint qt_meta_data_MainWindow[] = {
      157,   11,   11,   11, 0x08,
      186,   11,   11,   11, 0x08,
      219,  215,   11,   11, 0x08,
+     232,   11,   11,   11, 0x08,
+     256,   11,   11,   11, 0x08,
 
        0        // eod
 };
@@ -49,7 +51,8 @@ static const char qt_meta_stringdata_MainWindow[] = {
     "on_pushButton_Cam2_clicked()\0"
     "on_pushButton_Cam3_clicked()\0"
     "on_pushButton_Cam4_clicked()\0cam\0"
-    "sendCam(int)\0"
+    "sendCam(int)\0on_pushButton_clicked()\0"
+    "on_pushButton_Cam4_2_clicked()\0"
 };
 
 void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -66,6 +69,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 5: _t->on_pushButton_Cam3_clicked(); break;
         case 6: _t->on_pushButton_Cam4_clicked(); break;
         case 7: _t->sendCam((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 8: _t->on_pushButton_clicked(); break;
+        case 9: _t->on_pushButton_Cam4_2_clicked(); break;
         default: ;
         }
     }
@@ -103,9 +108,9 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 10;
     }
     return _id;
 }

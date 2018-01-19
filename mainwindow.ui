@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>320</width>
-    <height>347</height>
+    <height>238</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page_1">
      <widget class="QPushButton" name="pushButton_authentication">
@@ -40,11 +40,7 @@
        </rect>
       </property>
       <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>../../../media/sf_shared_VM/320x240.jpg</normaloff>../../../media/sf_shared_VM/320x240.jpg</iconset>
+       <string>ok</string>
       </property>
       <property name="iconSize">
        <size>
@@ -64,7 +60,7 @@
         <x>10</x>
         <y>10</y>
         <width>105</width>
-        <height>105</height>
+        <height>51</height>
        </rect>
       </property>
       <property name="text">
@@ -81,9 +77,9 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>125</y>
+        <y>70</y>
         <width>105</width>
-        <height>105</height>
+        <height>41</height>
        </rect>
       </property>
       <property name="text">
@@ -102,7 +98,7 @@
         <x>125</x>
         <y>10</y>
         <width>105</width>
-        <height>105</height>
+        <height>51</height>
        </rect>
       </property>
       <property name="text">
@@ -118,10 +114,10 @@
      <widget class="QPushButton" name="pushButton_Cam4">
       <property name="geometry">
        <rect>
-        <x>125</x>
-        <y>125</y>
+        <x>120</x>
+        <y>70</y>
         <width>105</width>
-        <height>105</height>
+        <height>41</height>
        </rect>
       </property>
       <property name="text">
@@ -147,13 +143,13 @@
        <string>Settings</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_Cam4_2">
+     <widget class="QPushButton" name="pushButton_new_fingerprint">
       <property name="geometry">
        <rect>
         <x>240</x>
-        <y>125</y>
+        <y>179</y>
         <width>70</width>
-        <height>105</height>
+        <height>51</height>
        </rect>
       </property>
       <property name="text">
@@ -166,6 +162,31 @@ print</string>
       </property>
       <property name="checked">
        <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>120</y>
+        <width>71</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>send
+command
+1</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="textEdit">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>120</y>
+        <width>211</width>
+        <height>101</height>
+       </rect>
       </property>
      </widget>
     </widget>
@@ -492,16 +513,27 @@ print</string>
       </widget>
      </widget>
     </widget>
-   </widget>
-   <widget class="QTextEdit" name="textEdit">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>240</y>
-      <width>271</width>
-      <height>101</height>
-     </rect>
-    </property>
+    <widget class="QWidget" name="page_4">
+     <widget class="QPushButton" name="pushButton_denied">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>320</width>
+        <height>240</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>denied</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>320</width>
+        <height>240</height>
+       </size>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
  </widget>
