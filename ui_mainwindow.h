@@ -40,7 +40,7 @@ public:
     QPushButton *pushButton_Cam3;
     QPushButton *pushButton_Cam4;
     QToolButton *toolButton;
-    QPushButton *pushButton_Cam4_2;
+    QPushButton *pushButton_new_fingerprint;
     QPushButton *pushButton;
     QTextEdit *textEdit;
     QWidget *page_3;
@@ -70,12 +70,14 @@ public:
     QRadioButton *radioButton_2_Cam4;
     QRadioButton *radioButton_3_Cam4;
     QRadioButton *radioButton_4_Cam4;
+    QWidget *page_4;
+    QPushButton *pushButton_denied;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(320, 347);
+        MainWindow->resize(320, 238);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         stackedWidget = new QStackedWidget(centralWidget);
@@ -87,9 +89,6 @@ public:
         pushButton_authentication->setObjectName(QString::fromUtf8("pushButton_authentication"));
         pushButton_authentication->setEnabled(true);
         pushButton_authentication->setGeometry(QRect(0, 0, 320, 240));
-        QIcon icon;
-        icon.addFile(QString::fromUtf8("../../../media/sf_shared_VM/320x240.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_authentication->setIcon(icon);
         pushButton_authentication->setIconSize(QSize(320, 240));
         pushButton_authentication->setCheckable(false);
         stackedWidget->addWidget(page_1);
@@ -118,11 +117,11 @@ public:
         toolButton = new QToolButton(page_2);
         toolButton->setObjectName(QString::fromUtf8("toolButton"));
         toolButton->setGeometry(QRect(240, 10, 70, 105));
-        pushButton_Cam4_2 = new QPushButton(page_2);
-        pushButton_Cam4_2->setObjectName(QString::fromUtf8("pushButton_Cam4_2"));
-        pushButton_Cam4_2->setGeometry(QRect(240, 179, 70, 51));
-        pushButton_Cam4_2->setCheckable(false);
-        pushButton_Cam4_2->setChecked(false);
+        pushButton_new_fingerprint = new QPushButton(page_2);
+        pushButton_new_fingerprint->setObjectName(QString::fromUtf8("pushButton_new_fingerprint"));
+        pushButton_new_fingerprint->setGeometry(QRect(240, 179, 70, 51));
+        pushButton_new_fingerprint->setCheckable(false);
+        pushButton_new_fingerprint->setChecked(false);
         pushButton = new QPushButton(page_2);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(240, 120, 71, 51));
@@ -217,11 +216,18 @@ public:
         radioButton_4_Cam4->setGeometry(QRect(10, 120, 140, 23));
         tabWidget->addTab(Tab_Cam4, QString());
         stackedWidget->addWidget(page_3);
+        page_4 = new QWidget();
+        page_4->setObjectName(QString::fromUtf8("page_4"));
+        pushButton_denied = new QPushButton(page_4);
+        pushButton_denied->setObjectName(QString::fromUtf8("pushButton_denied"));
+        pushButton_denied->setGeometry(QRect(0, 0, 320, 240));
+        pushButton_denied->setIconSize(QSize(320, 240));
+        stackedWidget->addWidget(page_4);
         MainWindow->setCentralWidget(centralWidget);
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(0);
         tabWidget->setCurrentIndex(0);
 
 
@@ -231,16 +237,18 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0, QApplication::UnicodeUTF8));
-        pushButton_authentication->setText(QString());
+        pushButton_authentication->setText(QApplication::translate("MainWindow", "ok", 0, QApplication::UnicodeUTF8));
         pushButton_Cam1->setText(QApplication::translate("MainWindow", "CAM1", 0, QApplication::UnicodeUTF8));
         pushButton_Cam2->setText(QApplication::translate("MainWindow", "CAM2", 0, QApplication::UnicodeUTF8));
         pushButton_Cam3->setText(QApplication::translate("MainWindow", "CAM3", 0, QApplication::UnicodeUTF8));
         pushButton_Cam4->setText(QApplication::translate("MainWindow", "Cam4", 0, QApplication::UnicodeUTF8));
         toolButton->setText(QApplication::translate("MainWindow", "Settings", 0, QApplication::UnicodeUTF8));
-        pushButton_Cam4_2->setText(QApplication::translate("MainWindow", "New \n"
+        pushButton_new_fingerprint->setText(QApplication::translate("MainWindow", "New \n"
 " finger-\n"
 "print", 0, QApplication::UnicodeUTF8));
-        pushButton->setText(QApplication::translate("MainWindow", "PushButton", 0, QApplication::UnicodeUTF8));
+        pushButton->setText(QApplication::translate("MainWindow", "send\n"
+"command\n"
+"1", 0, QApplication::UnicodeUTF8));
         groupBox_Cam1->setTitle(QString());
         radioButton_1_Cam1->setText(QApplication::translate("MainWindow", "1080p/30FPS", 0, QApplication::UnicodeUTF8));
         radioButton_2_Cam1->setText(QApplication::translate("MainWindow", "720p/60FPS", 0, QApplication::UnicodeUTF8));
@@ -265,6 +273,7 @@ public:
         radioButton_3_Cam4->setText(QApplication::translate("MainWindow", "640x480p/60FPS", 0, QApplication::UnicodeUTF8));
         radioButton_4_Cam4->setText(QApplication::translate("MainWindow", "640x480p/90FPS", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(Tab_Cam4), QApplication::translate("MainWindow", "CAM4", 0, QApplication::UnicodeUTF8));
+        pushButton_denied->setText(QApplication::translate("MainWindow", "denied", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

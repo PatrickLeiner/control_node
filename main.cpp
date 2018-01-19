@@ -15,7 +15,10 @@ zmq::context_t contAuth(1);
 zmq::socket_t publisher(context, ZMQ_PUB);
 zmq::socket_t requester(contAuth, ZMQ_REQ);
 
-
+//
+// Function sendPublischer( )
+// send data to depending subscriber
+//
 void sendPublischer( char * buff, int len)
 {
     pthread_mutex_lock(&mtxPublischer);
@@ -23,19 +26,28 @@ void sendPublischer( char * buff, int len)
     pthread_mutex_unlock(&mtxPublischer);
 
 }
-
+//
+// Function sendAuth(  )
+// send request to authentication_node
+// get reply from authentication_node
+// reply true if authenticated
+// reply false if not
+//
 int sendAuth( char command, zmq::message_t *response)
 {
-    zmq_pollitem_t items [1];
+    //zmq_pollitem_t items [1];
     int rc = 0;
-    bool sended;
 
     pthread_mutex_lock(&mtxAuth);
 
 
-    sended = requester.send(&command,1,0);
+    requester.send(&command,1,0);
 
     rc = requester.recv(response,0);
+
+    //
+    // Timeout Prototype who didn´t work
+    //
 
     //if(rc >= 0)
    // {
@@ -50,7 +62,7 @@ int sendAuth( char command, zmq::message_t *response)
 
   //  }
 
-    pthread_mutex_unlock(&mtxAuth);    
+    pthread_mutex_unlock(&mtxAuth);
 
     return rc;
 
@@ -60,20 +72,16 @@ int sendAuth( char command, zmq::message_t *response)
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;  
+    MainWindow w;
 
+    // create local publisher on port 6666
     publisher.bind("tcp://*:6666");
-    //requester.setsockopt(ZMQ_SNDTIMEO, 2000);
-    //requester.setsockopt(ZMQ_RCVTIMEO, 2000);
 
-    requester.connect("tcp://10.0.0.2:6664");
-
+    // connect to authentication_node
+    //requester.connect("tcp://10.0.0.2:6664");
+    requester.connect("tcp://127.0.0.1:6664");
 
     w.show();
 
     return a.exec();
 }
-
-
-
-
